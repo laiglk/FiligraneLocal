@@ -1,0 +1,59 @@
+name: Signaler un bug
+description: Signaler un problème reproductible dans Filigrane Local
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Merci pour le signalement. **N’ajoute aucun document personnel ou confidentiel.**
+        Utilise uniquement un fichier fictif ou anonymisé pour illustrer le problème.
+
+  - type: input
+    id: macos
+    attributes:
+      label: Version de macOS
+      placeholder: "Ex. macOS 15.6"
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problème rencontré
+      description: Décris ce qui s’est passé et ce que tu attendais.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Étapes pour reproduire
+      placeholder: |
+        1. Ouvrir l’application
+        2. Ajouter un fichier fictif
+        3. Cliquer sur…
+    validations:
+      required: true
+
+  - type: dropdown
+    id: format
+    attributes:
+      label: Format concerné
+      options:
+        - PDF
+        - JPG/JPEG
+        - PNG
+        - WebP
+        - HEIC/HEIF
+        - TIFF
+        - Autre ou non applicable
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Journal de diagnostic anonymisé
+      description: Copie uniquement les lignes utiles de ~/Library/Logs/FiligraneLocal.log après avoir retiré toute donnée personnelle.
+      render: shell

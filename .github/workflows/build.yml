@@ -1,0 +1,34 @@
+name: Vérification macOS
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Compiler l’application
+    runs-on: macos-14
+
+    steps:
+      - name: Récupérer le code
+        uses: actions/checkout@v4
+
+      - name: Compiler et vérifier la signature
+        env:
+          FILIGRANE_NO_OPEN: "1"
+        run: bash build.command
+
+      - name: Préparer l’archive
+        run: ditto -c -k --sequesterRsrc --keepParent build/FiligraneLocal.app FiligraneLocal.app.zip
+
+      - name: Conserver l’application compilée
+        uses: actions/upload-artifact@v4
+        with:
+          name: FiligraneLocal-macOS
+          path: FiligraneLocal.app.zip
+          retention-days: 14
