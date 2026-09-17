@@ -26,36 +26,27 @@ Le code source est court et consultable dans [`main.swift`](main.swift).
 
 ## Installation
 
-### Prérequis
+### Installation rapide avec le DMG
 
-- macOS 13 ou version ultérieure ;
-- les outils de développement Apple gratuits.
+1. Ouvre la page [Releases](https://github.com/laiglk/FiligraneLocal/releases/latest).
+2. Télécharge le fichier `FiligraneLocal-v1.1.0.dmg`.
+3. Ouvre le DMG puis glisse **Filigrane Local** dans le raccourci **Applications**.
+4. Lance l’application depuis le dossier Applications.
 
-Installe les outils Apple une seule fois si nécessaire :
+> L’application n’est pas notarée par Apple. Si macOS la bloque au premier lancement, fais un clic droit sur l’application, choisis **Ouvrir**, puis confirme.
+
+### Compiler soi-même
+
+Prérequis : macOS 13 ou version ultérieure et les outils de développement Apple gratuits.
 
 ```bash
 xcode-select --install
-```
-
-### Compiler l’application
-
-1. Télécharge le dépôt avec **Code → Download ZIP**, puis décompresse-le.
-2. Ouvre Terminal dans le dossier du projet.
-3. Lance :
-
-```bash
 bash build.command
 ```
 
-L’application est créée dans :
+L’application est créée dans `build/FiligraneLocal.app`.
 
-```text
-build/FiligraneLocal.app
-```
-
-Tu peux ensuite la déplacer dans le dossier `Applications`.
-
-> L’application est compilée et signée localement sur ton Mac. Elle n’est pas distribuée avec une signature Developer ID ni notarée par Apple.
+> L’application est compilée et signée localement sur ton Mac. Elle n’est pas distribuée avec une signature Developer ID.
 
 ## Utilisation
 
